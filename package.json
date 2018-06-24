@@ -1,0 +1,12 @@
+{
+  "name": "vuejs-example",
+  "version": "1.0.0",
+  "description": "",
+  "devDependencies": {
+    "lite-server": "^2.3.0"
+  },
+  "scripts": {
+    "dev": "lite-server"
+  },
+  "author": "Ivo Soares"
+}
