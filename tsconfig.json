@@ -1,11 +1,20 @@
- {
-    "compilerOptions": {
-      	"outDir": "./dist/",
-	"sourceMap": true,
-      "noImplicitAny": true,
-      "module": "commonjs",
-      "target": "es5",
-      "jsx": "react",
-      "allowJs": true
-    }
-  }
+{
+  "compilerOptions": {
+    "outDir": "./dist/",
+    "sourceMap": true,
+    // this aligns with Vue's browser support
+    "target": "es5",
+    // this enables stricter inference for data properties on `this`
+    "strict": true,
+    "noImplicitThis": true,
+    "module": "es2015",
+    "moduleResolution": "node",
+    "isolatedModules": false,
+  },
+  "include": [
+    "./src/**/*"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+}

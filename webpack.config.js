@@ -1,24 +1,39 @@
-'use strict'
-const path = require('path');
+var path = require('path')
+var webpack = require('webpack')
 
 module.exports = {
-	entry:[
-		'./src/app.ts'
-	],
+	entry:{
+		app:'./src/app.ts'
+	},
 	module:{
-		rules:[{
-			test:/\.tsx$/,
-			use: 'ts-loader',
-       			exclude: /node_modules/
-		}]
+		rules:[
+			{
+				test: /\.vue$/,
+				loader: 'vue-loader',
+				
+			},
+			{
+				test:/\.tsx?$/,
+				use: 'ts-loader',
+				exclude: /node_modules/
+			}
+		]
 	},
 	resolve:{
-		extensions: [ '.tsx', '.ts', '.js' ]
+		extensions: [ '.tsx', '.ts', '.js', '.vue'],
+		alias: {
+			'vue$': 'vue/dist/vue.esm.js'
+		}
 	},
 	output: {
-    		filename: 'bundle.js',
-    		path: path.resolve(__dirname, 'dist')
-  	}
-
+    	filename: '[name].js',
+    	path: path.resolve(__dirname, 'dist')
+	},
+	plugins: [
+		new webpack.ProvidePlugin({
+			Vue: ['vue/dist/vue.esm.js']
+		})
+	],
+	mode: 'development'
 }
 

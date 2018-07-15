@@ -1,8 +1,16 @@
-import Vue from 'vue'
+import Vue from 'vue';
 
-var app = new Vue({
-	el: '#app',
-	data: {
-		message: 'My custom message!'
-	}
+let app1 = new Vue({ 
+    el: '#app-1',
+    data: {
+        message: 'Hello Vue!'
+    }
+});
+
+let app2 = new Vue({ 
+    el: '#app-2',
+    template: `<div>{{ message }}</div>`,
+    data: {
+        message: 'Hello Vue Template!'
+    }
 });
